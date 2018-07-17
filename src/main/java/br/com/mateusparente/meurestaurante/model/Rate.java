@@ -36,7 +36,7 @@ public class Rate {
     @JoinColumn(name = "USER_ID", nullable = false, referencedColumnName="USER_ID")
 	private User user;
 	
-	@Column
+	@Column(name = "RATE_DATE")
 	@Temporal(TemporalType.DATE)
 	@CreatedDate
 	private Date rateDate;

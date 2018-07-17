@@ -29,11 +29,18 @@ public class Restaurant {
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "restaurant")
 	private List<Rate> rates;
 	
+	@Column(name = "RESTAURANT_RATES_COUNT")
+	private Long ratesCount = 0L;
+	
 	public Restaurant() {
 	}
 
 	public Restaurant(Long id) {
 		this.id = id;
+	}
+	
+	public void addRateCount(){
+		this.ratesCount++;
 	}
 
 	public Long getId() {
@@ -58,6 +65,14 @@ public class Restaurant {
 
 	public void setRates(List<Rate> rates) {
 		this.rates = rates;
+	}
+
+	public Long getRatesCount() {
+		return ratesCount;
+	}
+
+	public void setRatesCount(Long ratesCount) {
+		this.ratesCount = ratesCount;
 	}
 	
 }
