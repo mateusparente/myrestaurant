@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.mateusparente.meurestaurante.exception.RepeatedRateException;
 import br.com.mateusparente.meurestaurante.model.Rate;
@@ -17,6 +18,7 @@ import br.com.mateusparente.meurestaurante.model.Restaurant;
 import br.com.mateusparente.meurestaurante.repository.RestaurantRepository;
 
 @Service
+@Transactional
 public class RestaurantServiceImpl implements RestaurantService {
 
 	@PersistenceContext

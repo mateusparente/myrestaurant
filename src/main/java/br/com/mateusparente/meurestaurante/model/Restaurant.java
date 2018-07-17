@@ -13,6 +13,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name="RESTAURANT")
 public class Restaurant {
@@ -26,6 +28,7 @@ public class Restaurant {
 	@Column(name="RESTAURANT_NAME", nullable = false)
 	private String name;
 	
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "restaurant")
 	private List<Rate> rates;
 	
