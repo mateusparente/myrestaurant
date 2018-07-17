@@ -24,11 +24,18 @@ public class User {
 	private Long id;
 	
 	@NotNull(message = "Restaurant name is required.")
-	@Column(nullable = false)
+	@Column(name="USER_NAME", nullable = false)
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "user")
 	private List<Rate> rates = new ArrayList<>();
+
+	public User() {}
+
+	public User(Long id) {
+		super();
+		this.id = id;
+	}
 
 	public void addRate(Rate rate){
 		rate.setUser(this);

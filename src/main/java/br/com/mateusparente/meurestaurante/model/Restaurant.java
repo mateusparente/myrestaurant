@@ -10,9 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="RESTAURANT")
 public class Restaurant {
 
 	@Id
@@ -21,11 +23,18 @@ public class Restaurant {
 	private Long id;
 	
 	@NotNull(message = "Restaurant name is required.")
-	@Column(nullable = false)
+	@Column(name="RESTAURANT_NAME", nullable = false)
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "restaurant")
 	private List<Rate> rates;
+	
+	public Restaurant() {
+	}
+
+	public Restaurant(Long id) {
+		this.id = id;
+	}
 
 	public Long getId() {
 		return id;
@@ -41,6 +50,14 @@ public class Restaurant {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Rate> getRates() {
+		return rates;
+	}
+
+	public void setRates(List<Rate> rates) {
+		this.rates = rates;
 	}
 	
 }
