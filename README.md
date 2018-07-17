@@ -24,7 +24,7 @@ USERS
 
 RESTAURANTS
 ------------------
-GET: /api/restaurants
+**GET**: /api/restaurants
 ```
 [
     {
@@ -34,14 +34,14 @@ GET: /api/restaurants
     }
 ]
 ```
-POST: /api/restaurants
+**POST**: /api/restaurants
 ```
 {
 	"name":"Restaurant 1000 Example Creating"
 }
 ```
 
-GET: /api/restaurants/rate
+**GET**: /api/restaurants/rate
 ```
 {
     "id": 1,
@@ -49,7 +49,7 @@ GET: /api/restaurants/rate
     "ratesCount": 100
 }
 ```
-POST: /api/restaurants/rate
+**POST**: /api/restaurants/rate
 ```
  {
       "restaurant": {
